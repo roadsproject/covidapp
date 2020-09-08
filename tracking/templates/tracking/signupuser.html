@@ -1,0 +1,20 @@
+{% extends "tracking/base.html" %}
+
+{% block content %}
+            <h2>Signup</h2>
+            {% if error %}
+                    {{ error }}
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                    </table>
+                <input type="checkbox" name="termsandconditions" id="terms">
+                    <label class="form-check-label" for="terms">Terms & Conditions here</label>
+                <br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

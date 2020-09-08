@@ -9,7 +9,9 @@ class User(models.Model):
     first_name      = models.CharField(max_length = 100)
     last_name       = models.CharField(max_length = 100)
     email           = models.EmailField()
-    phone           = models.PositiveIntegerField()
+    phone           = models.CharField(max_length = 50) #changed to show numbers better
+    password        = models.CharField(max_length = 32)
+
 
 class Business(models.Model):
     business_id     = models.AutoField(primary_key=True)
