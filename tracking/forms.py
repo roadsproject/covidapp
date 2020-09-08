@@ -1,31 +1,16 @@
+
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.db import transaction
-from django.forms.utils import ValidationError
+from django.forms import ModelForm
+from .models import User
 
-from tracking.models import (Individual,Business,Visit, User)
-
-
-
-class BusinessSignUpForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
+class UserForm(ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    password_confirm = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
         model = User
+        fields = ['username', 'first_name', 'last_name', 'email',  'password']
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.is_business = True
-        if commit:
-            user.save()
-        return user
-
-
-class IndividualSignUpForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
+class SigninForm(ModelForm):
+    class Meta:
         model = User
-
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.is_individual = True
-        if commit:
-            user.save()
-        return user
+        fields = ['username', 'password']

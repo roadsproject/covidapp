@@ -1,6 +1,6 @@
 from django.urls import include, path
 
-from tracking.views import tracking,business,individual
+from tracking.views import tracking
 
 
 urlpatterns = [

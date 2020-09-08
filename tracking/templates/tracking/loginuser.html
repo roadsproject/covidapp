@@ -1,0 +1,22 @@
+{% extends "tracking/base.html" %}
+
+{% block content %}
+            <h2>Login</h2>
+
+            {% if error %}
+                    {{ error }}
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <hr>
+                Need an account? <a href="{% url 'signupuser' %}">Sign Up here</a>
+
+
+
+{% endblock %}
