@@ -8,7 +8,7 @@ class UserForm(ModelForm):
     password_confirm = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email',  'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'phone', 'password']
 
 class SigninForm(ModelForm):
     class Meta:

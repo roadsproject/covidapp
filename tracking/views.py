@@ -19,6 +19,8 @@ def signupuser(request):
             try:
                 form = UserForm(request.POST)
                 user = form.save(commit=False)
+                password = form.cleaned_data['password']
+                user.set_password(password)
                 user.save()
                 return redirect('home')
             except IntegrityError:
@@ -43,6 +45,3 @@ def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('home')
-
-
-
