@@ -30,9 +30,15 @@ class Individual(models.Model):
     #user_name       = models.CharField(max_length = 50)
     first_name      = models.CharField(max_length = 100)
     last_name       = models.CharField(max_length = 100)
+<<<<<<< HEAD
     #email           = models.EmailField()
     #phone           = models.CharField(max_length = 50) #changed to show numbers better
     #password        = models.CharField(max_length = 32)
+=======
+    email           = models.EmailField()
+    phone           = models.CharField(max_length = 50) #changed to show numbers better
+    password        = models.CharField(max_length = 32)
+>>>>>>> d3b74ae50949766c59a4e90e2242e48cbfaa42e9
 
 
 class Business(models.Model):

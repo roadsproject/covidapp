@@ -22,6 +22,7 @@ urlpatterns = [
 
 
 #Auth
+<<<<<<< HEAD
     path('signup/', views.signupuser, name='signupuser'),
     path('login/', views.loginuser, name='loginuser'),
     path('logout/', views.logoutuser, name='logoutuser'),
@@ -30,3 +31,13 @@ urlpatterns = [
     path('', views.home, name='home'),
 
 ]
+=======
+path('signup/', views.signupuser, name='signupuser'),
+path('login/', views.loginuser, name='loginuser'),
+path('logout/', views.logoutuser, name='logoutuser'),
+
+
+path('', views.home, name='home'),
+
+]
+>>>>>>> d3b74ae50949766c59a4e90e2242e48cbfaa42e9
