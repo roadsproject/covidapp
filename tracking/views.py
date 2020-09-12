@@ -4,9 +4,15 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import UserForm, SigninForm
-from .models import User
+from .models import User,Visit
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+
+
+
 
 
 def home(request):
@@ -47,6 +53,9 @@ def logoutuser(request):
         logout(request)
         return redirect('home')
 
-
-def home(request):
-    return render(request, 'tracking/home.html')
+@method_decorator(login_required,name='dispatch')
+class VisitView(CreateView):
+    model = Visit
+    template_name = 'tracking/visit.html'
+    fields = ('b_user','is_in',)
+    success_url = reverse_lazy('home')
