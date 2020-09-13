@@ -4,4 +4,16 @@
 
 <h1>HOME </h1>
 
+{% if user.is_authenticated %}
+<h2><u>Organisations</u></h2>
+{% for business in business %}
+<h4><u>{{ business.business_name }}</u></h4>
+ID: {{ business.business_id }}<br>
+Contact Name: {{ business.contact_name }}<br>
+Email: {{ business.email }}
+Phone Number: {{ business.phone }}
+{% endfor %}
+{% endif %}
+
+
 {% endblock %}

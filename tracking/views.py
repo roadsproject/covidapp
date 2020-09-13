@@ -16,7 +16,8 @@ from django.utils.decorators import method_decorator
 
 
 def home(request):
-    return render(request, 'tracking/home.html')
+    businesslist = Business.objects.order_by('business_name')
+    return render(request, 'tracking/home.html', {'business': businesslist})
 
 def signupuser(request):
     if request.method == 'GET':
@@ -36,16 +37,6 @@ def signupuser(request):
         else:
             return render(request, 'tracking/signupuser.html', {'form': UserForm(), 'error': 'Username and password did not match'})
 
-# def loginuser(request):
-#     if request.method == 'GET':
-#         return render(request, 'tracking/loginuser.html', {'form':SigninForm()})
-#     else:
-#         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-#         if user is None:
-#             return render(request, 'tracking/loginuser.html', {'form':SigninForm(), 'error':'Username and password did not match'})
-#         else:
-#             login(request, user)
-#             return redirect('home')
 
 @login_required
 def logoutuser(request):
