@@ -1,20 +1,41 @@
 {% extends "tracking/base.html" %}
 
 {% block content %}
-            <h2>Signup</h2>
+<br>
+      <br>
+      <br>
+
+  <div class="column3" style="background-color:#aaa;">
+    <br>
+    <h2 style="text-align: center; color:white">Sign Up</h2>
+    <br>
             {% if error %}
                     {{ error }}
             {% endif %}
             <form method="POST">
                 {% csrf_token %}
-                <table>
-                    {{ form.as_table }}
+                <table style="color: white">
+                    {{ form.as_p }}
                     </table>
-                <input type="checkbox" name="termsandconditions" id="terms">
-                    <label class="form-check-label" for="terms">Terms & Conditions here</label>
+                <input type="checkbox" style="margin-left: 10px" name="termsandconditions" id="terms" required>
+                    <label class="form-check-label" style="color: white; margin-left: 2px" for="terms">By ticking this box, you agree to be contacted for health and safety purposes.</label>
                 <br>
-                <button type="submit">Save</button>
+                <br>
+                <button type="submit" class="tn btn-light btn-lg" style="margin-left: 200px;">Save</button>
             </form>
+      <br>
+      <br>
         </div>
+
     </div>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="column" style="">
+
+  </div>
 {% endblock %}

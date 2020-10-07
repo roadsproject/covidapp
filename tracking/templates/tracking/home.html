@@ -2,18 +2,43 @@
 
 {% block content %}
 
-<h1>HOME </h1>
 
+<br>
+      <br>
+      <br>
 {% if user.is_authenticated %}
-<h2><u>Organisations</u></h2>
-{% for business in business %}
-<h4><u>{{ business.business_name }}</u></h4>
-ID: {{ business.business_id }}<br>
-Contact Name: {{ business.contact_name }}<br>
-Email: {{ business.email }}
-Phone Number: {{ business.phone }}
-{% endfor %}
+<div class="column1" style="background-color:#ddd;>
+<ul class="navbar-nav ml-auto">
+    <br>
+<h2><u><b>User Account</b></u></h2>
+<a href="{% url 'visit' %}"><h2 style="color:black">Add Visit</h2></a>
+    {% if user.is_staff %}
+    <hr>
+    <h2><u><b>Admin</b></u></h2>
+<a href="{% url 'createbusiness' %}"><h2 style="color:black">Add Business</h2></a>
+<a href="{% url 'search' %}"><h2 style="color:black">People Search</h2></a>
+<a href="{% url 'checkinsearch' %}"><h2 style="color:black">Timeline Search</h2></a>
+    {% endif %}
+
+  </div>
+{% else %}
+<div class="columnfrontpage" style="background-color:#ddd;">
+      <ul class="navbar-nav ml-auto">
+
+    </ul>
+      <img src="https://i.ibb.co/x8N5MTH/Roads.png" alt="Roads" border="0" width="400" style="margin-left: 30px;margin-top: 25px;">
+      <br>
+      <br>
+                     <a href="{% url 'login' %}"><button type="submit" class="tn btn-light btn-lg"style="margin-left: 110px;">Login</button></a>
+      <a href="{% url 'signupuser' %}"><button type="submit" class="tn btn-light btn-lg" style="margin-left: 10px;">Signup</button></a>
+      <br>
+      <br>
 {% endif %}
+  </div>
+<br>
+
+
+
 
 
 {% endblock %}

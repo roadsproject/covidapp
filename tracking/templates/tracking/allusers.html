@@ -1,0 +1,7 @@
+{% block content %}
+  <ul>
+  {% for user in filter %}
+    <li>{{ filter.i_user }} - {{ user.first_name }}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}

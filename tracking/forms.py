@@ -19,4 +19,4 @@ class SigninForm(ModelForm):
 class VisitForm(ModelForm):
     class Meta:
         model = Visit
-        fields = ['business_id','is_in']
+        fields = ['business_id','record_type']

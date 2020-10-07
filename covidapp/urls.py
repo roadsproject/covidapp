@@ -30,6 +30,9 @@ urlpatterns = [
     #path('visit/', views.VisitView.as_view(),name ='visit'),
     path('visit/', views.VisitView.as_view(), name='visit'),
     path('createbusiness/', views.CreateBusinessView.as_view(), name='createbusiness'),
+    path('business/<int:business_id>', views.businesspage, name='business'),
+    url(r'^search/$', views.search, name='search'),
+    url('checkinsearch', views.checkinsearch, name='checkinsearch'),
 
 
 

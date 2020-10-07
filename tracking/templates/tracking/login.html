@@ -2,11 +2,37 @@
 
 {% block title %}Login{% endblock %}
 
+
 {% block content %}
-  <h2>Login</h2>
-  <form method="POST">
+<br>
+      <br>
+      <br>
+
+  <div class="column2" style="background-color:#aaa;">
+    <br>
+    <h2 style="text-align: center; color:white">Login</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form method="POST">
+
+
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button type="submit" class="btn btn-dark"style="margin-left: 90px;">Login</button>
+      <a href="{% url 'signupuser' %}"><button type="submit" class="btn btn-dark">Signup for free</button></a>
   </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="column" style="">
+
+  </div>
+
+
 {% endblock %}

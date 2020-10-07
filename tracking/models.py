@@ -41,7 +41,7 @@ class Business(models.Model):
     business_name   = models.CharField(max_length = 200)
     contact_name    = models.CharField(max_length = 200)
     email           = models.EmailField()
-    phone           = models.PositiveIntegerField()
+    phone           = models.CharField(max_length = 50)
 
 class Visit(models.Model):
     user_id                  = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -49,4 +49,8 @@ class Visit(models.Model):
     #business_id       = models.ForeignKey(Business,on_delete=models.CASCADE)
     #date             = models.DateField(auto_now_add=Ture)
     datetime          = models.DateTimeField(auto_now_add=True)
-    is_in             = models.BooleanField()
+    #is_in             = models.BooleanField()
+    IN = 'IN'
+    OUT = 'OUT'
+    RECORD_TYPES =[(IN,'I am sign in'),(OUT,'I am sign out'),]
+    record_type = models.CharField(max_length = 3,choices = RECORD_TYPES, default = IN,)

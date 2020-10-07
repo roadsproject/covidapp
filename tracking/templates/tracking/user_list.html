@@ -1,0 +1,94 @@
+{% extends "tracking/base.html" %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<ul1>
+  <li><a href="{% url 'visit' %}"><b>Visit</b></a></li>
+  {% if user.is_staff %}
+  <li><a href="{% url 'createbusiness' %}"><b>Create Business</b></a></li>
+  <li><a class="active" href="{% url 'search' %}"><b>Search</b></a></li>
+  <li><a  href="{% url 'checkinsearch' %}"><b>Date Search</b></a></li>
+  {% endif %}
+</ul1>
+<br>
+
+
+  <div class="column5" style="background-color:#aaa;margin-top:20px">
+    <br>
+    <h2 style="text-align: center">Visitor Search</h2>
+    <br>
+  <form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.first_name.label_tag }}
+          {% render_field filter.form.first_name class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.last_name.label_tag }}
+          {% render_field filter.form.last_name class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.phone.label_tag }}
+          {% render_field filter.form.phone class="form-control" %}
+        </div>
+           <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.email.label_tag }}
+          {% render_field filter.form.email class="form-control" %}
+        </div>
+      <button type="submit" class="tn btn-light btn-lg" style="margin-left: 20px;">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+</div>
+      </div>
+</div>
+<br>
+      <br>
+        </div>
+
+    </div>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="column5" style="background-color:#aaa; margin-top: 10px;">
+
+  <table class="table table-bordered" style="width:100%">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in filter.qs %}
+        <tr>
+          <td>{{ user.username }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.phone }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    </div>
+{% endblock %}
+

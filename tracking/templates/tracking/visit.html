@@ -3,10 +3,31 @@
 {% block title %}Visit{% endblock %}
 
 {% block content %}
-  <h2>Visit</h2>
+<br>
+<br>
+<br>
+<ul1>
+  <li><a class="active" href="{% url 'visit' %}"><b>Visit</b></a></li>
+  {% if user.is_staff %}
+  <li><a  href="{% url 'createbusiness' %}"><b>Create Business</b></a></li>
+  <li><a  href="{% url 'search' %}"><b>Search</b></a></li>
+  <li><a  href="{% url 'checkinsearch' %}"><b>Date Search</b></a></li>
+  {% endif %}
+</ul1>
+<br>
+<div class="column4" style="background-color:#aaa; margin-top:60px">
+    <br>
+  <h2 style="text-align: center; color:white">Record</h2>
+  <br>
+  <br>
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit</button>
+    <button type="submit" class="tn btn-light btn-lg" style="margin-left: 120px;">Save</button>
   </form>
+  <br>
+      <br>
+        </div>
+
+    </div>
 {% endblock %}
